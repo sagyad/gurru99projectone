@@ -26,8 +26,8 @@ public class Gurru_Home {
 	}
 	
 	public void verifyGurru99BankHomePage(String title){
-//		String getTitle = driver.getTitle();
-//		assertEquals(title, getTitle);
+		String getTitle = driver.getTitle();
+		assertEquals(title, getTitle);
 		System.out.println("We have verified home page.");
 	}
 	
