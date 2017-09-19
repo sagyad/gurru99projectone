@@ -21,6 +21,7 @@ public class BrowserFactory {
 		}else if(browser.equalsIgnoreCase("FireFox")){
 			driver = new FirefoxDriver();
 		}else if(browser.equalsIgnoreCase("InternetExplorer")){
+			System.setProperty("webdriver.ie.driver", "src"+File.separator+"BrowserDriver"+File.separator+"MicrosoftWebDriver.exe");
 			driver = new InternetExplorerDriver();
 		}
 		

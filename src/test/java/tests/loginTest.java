@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import Browser.BrowserFactory;
 
-public class mainTest {
+public class loginTest {
 
 	public static void main(String[] args) {
 		WebDriver driver = null;
