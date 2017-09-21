@@ -1,67 +1,69 @@
-package PageObjects;
-
+package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utility.Constant;
 
 /*
  * Declare some common parameters for scripts
- * You can change them to adapt your enviroment
+ * You can change them to adapt your environment
+ *  21/09/2017 - added Constant class with all constant variables declared.
  */
 public class Gurru_Home {
 	
-	private WebDriver driver ;
-	public static final String BASE_URL = "http://www.demo.guru99.com/V4/";
-	public static final String USER_NAME ="mngr97845";
-	public static final String PASSWD ="buqusus";
-	public static final String HOME_PAGE_EXPECT_TITLE ="Guru99 Bank Home Page";
-	public static final String AFTER_LOGIN_EXPECT_TITLE ="Guru99 Bank Manager HomePage";
+	Constant con = new Constant();
+	private WebDriver driver;
 
-	
-	@FindBy(xpath=".//input[@name='uid']")
+	@FindBy(xpath = ".//input[@name='uid']")
 	private WebElement userName;
-	
-	@FindBy(xpath=".//input[@name='password']")
+
+	@FindBy(xpath = ".//input[@name='password']")
 	private WebElement password;
-	
-	@FindBy(xpath=".//input[@name='btnLogin']")
+
+	@FindBy(xpath = ".//input[@name='btnLogin']")
 	private WebElement loginButton;
-	
-	public Gurru_Home(WebDriver driver){
-		this.driver=driver;
+
+	public Gurru_Home(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
 	}
-	
-	public void verifyGurru99BankHomePage(){
-		driver.get(BASE_URL);
+
+	public void verifyGurru99BankHomePage() {
+		driver.get(Constant.URL);
 		String getTitle = driver.getTitle();
-		if(getTitle.contains(HOME_PAGE_EXPECT_TITLE)){
+		if (getTitle.contains(Constant.HOME_PAGE_EXPECT_TITLE)) {
 			System.out.println("Home page verified successfully. Login page dispalyed.");
-		}else {
-//			assertEquals(HOME_PAGE_EXPECT_TITLE, getTitle);
+		} else {
+			// assertEquals(HOME_PAGE_EXPECT_TITLE, getTitle);
 			System.out.println("We could not get page title, please check if your internet is on.");
 		}
-		
+
+	}
+
+	public void setUserNameAndPassword() {
+		userName.clear();
+		userName.sendKeys(Constant.USERNAME);
+		password.clear();
+		password.sendKeys(Constant.PASSWORD);
+		loginButton.click();
+
+		String loginTitle = driver.getTitle();
+		if (loginTitle.contains(Constant.AFTER_LOGIN_EXPECT_TITLE)) {
+			System.out.println("User successfully logged in.");
+		} else {
+			System.out.println(
+					"Cannot verify page title - " + driver.getTitle() + " - check your internet connect is working");
+		}
 	}
 	
-	public void setUserNameAndPassword(){
-		userName.clear();
-		userName.sendKeys(USER_NAME);
-		password.clear();
-		password.sendKeys(PASSWD);
-		loginButton.click();
+	public static String [][] getDataFromExcel(String xlFilePath, String sheetName, String tableName) throws Exception{
 		
-		String loginTitle = driver.getTitle();
-		if(loginTitle.contains(AFTER_LOGIN_EXPECT_TITLE)){
-			System.out.println("User successfully logged in.");
-		}else{
-			System.out.println("Cannot verify page title - "+driver.getTitle()+" - check your internet connect is working");
-		}
-		
-		
+		String[][] tabArray = null;
+//		Workbook workbook = Workbook.getwork
+		return null;
 	}
 
 }
