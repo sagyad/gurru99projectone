@@ -14,7 +14,11 @@ import utility.Constant;
  */
 public class Gurru_Home {
 	
+<<<<<<< HEAD
 	
+=======
+	//What is going on
+>>>>>>> develop
 	Constant con = new Constant();
 	private WebDriver driver;
 
