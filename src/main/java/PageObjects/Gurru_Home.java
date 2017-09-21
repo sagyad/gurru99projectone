@@ -33,6 +33,7 @@ public class Gurru_Home {
 
 	public void verifyGurru99BankHomePage() {
 		driver.get(Constant.URL);
+		System.out.println();
 		String getTitle = driver.getTitle();
 		if (getTitle.contains(Constant.HOME_PAGE_EXPECT_TITLE)) {
 			System.out.println("Home page verified successfully. Login page dispalyed.");
