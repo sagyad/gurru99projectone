@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6638" started-at="2017-09-20T11:55:47Z" finished-at="2017-09-20T11:55:54Z">
+  <suite name="Default suite" duration-ms="7040" started-at="2017-09-21T11:36:25Z" finished-at="2017-09-21T11:36:32Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6638" started-at="2017-09-20T11:55:47Z" finished-at="2017-09-20T11:55:54Z">
+    <test name="Default test" duration-ms="7040" started-at="2017-09-21T11:36:25Z" finished-at="2017-09-21T11:36:32Z">
       <class name="tests.loginTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.loginTest@6093dd95]" name="setUp" is-config="true" duration-ms="5053" started-at="2017-09-20T12:55:47Z" finished-at="2017-09-20T12:55:52Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.loginTest@6093dd95]" name="setUp" is-config="true" duration-ms="5268" started-at="2017-09-21T12:36:25Z" finished-at="2017-09-21T12:36:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginToGurruBank()[pri:0, instance:tests.loginTest@6093dd95]" name="loginToGurruBank" duration-ms="1563" started-at="2017-09-20T12:55:52Z" finished-at="2017-09-20T12:55:54Z">
+        <test-method status="PASS" signature="loginToGurruBank()[pri:0, instance:tests.loginTest@6093dd95]" name="loginToGurruBank" duration-ms="1742" started-at="2017-09-21T12:36:30Z" finished-at="2017-09-21T12:36:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginToGurruBank -->

@@ -3,8 +3,8 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
-import Browser.BrowserFactory;
-import PageObjects.Gurru_Home;
+import pageObjects.Gurru_Home;
+import utility.BrowserFactory;
 
 /**
  * @author = Sagar Yadav
