@@ -63,11 +63,4 @@ public class Gurru_Home {
 		}
 	}
 	
-	public static String [][] getDataFromExcel(String xlFilePath, String sheetName, String tableName) throws Exception{
-		
-		String[][] tabArray = null;
-//		Workbook workbook = Workbook.getwork
-		return null;
-	}
-
 }
