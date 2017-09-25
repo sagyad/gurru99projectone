@@ -27,7 +27,7 @@ public class loginTest {
 	}
 
 	@Test
-	public void loginToGurruBank(){
+	public void loginToGurruBank() throws Exception{
 		Gurru_Home  gurru_Home = new Gurru_Home(driver);
 		gurru_Home.verifyGurru99BankHomePage();
 		gurru_Home.setUserNameAndPassword();

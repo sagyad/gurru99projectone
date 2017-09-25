@@ -2,11 +2,15 @@ package pageObjects;
 
 import java.io.FileInputStream;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 
 import utility.Constant;
 
@@ -18,10 +22,10 @@ import utility.Constant;
  */
 public class Gurru_Home {
 	
-	private static XSSFSheet excelWSheet;
-	private static XSSFWorkbook excelWBook;
-	private static XSSFCell excelWCell;
-	private static XSSFRow excelWRow;
+	private static XSSFWorkbook excelWorkBook;
+	private static XSSFSheet excelSheet;
+	private static XSSFCell excelSheetCell;
+	private static XSSFRow excelSheetRow;
 	
 	Constant con = new Constant();
 	private static WebDriver driver;
@@ -42,29 +46,35 @@ public class Gurru_Home {
 
 	
 	//This method is to set the file path and to open excel file, pass excel path and sheetname as argument to this method
-	
 	public void setExcelFile(String path, String sheetName) throws Exception{
 		try{
 			//Open the excel file
 			FileInputStream excelFile = new FileInputStream(path);
 			
 			//Access the required test data sheet
-			excelWBook = new XSSFWorkbook(excelFile);
-			excelWSheet = excelWBook.getSheet(sheetName);
+			excelWorkBook = new XSSFWorkbook(excelFile);
+			excelSheet = excelWorkBook.getSheet(sheetName);
 		}catch(Exception e){
 			throw(e);
 		}
 	}
 	
-//	public void String setCellData(String rowNum, int colNum) throws Exception{
-//		try{
-//			
-//			return rowNum;
-//		}catch(Exception e){
-//			return "";
-//		}
-//	}
 	
+	//This method is to read the test data from the Excel cell, in this we are passing parameters as Row num and Col num
+	
+	public String getCellData(int rowNum, int colNum){
+		
+		try{		
+			excelSheetCell = excelSheet.getRow(rowNum).getCell(colNum);
+			String cellData = excelSheetCell.getStringCellValue();
+			return cellData;
+			
+			
+		}catch(Exception e){
+			return "";
+		}
+	}
+
 	
 	public void verifyGurru99BankHomePage() {
 		driver.get(Constant.URL);
@@ -79,7 +89,15 @@ public class Gurru_Home {
 
 	}
 
-	public void setUserNameAndPassword() {
+	public void setUserNameAndPassword() throws Exception {
+		setExcelFile(Constant.PATH_TESTDATA+Constant.FILE_TESTDATA, "UserData");
+		String sUsername = getCellData(3, 2);
+		String sPass = getCellData(1, 2);
+		
+		System.out.println("=========================");
+		System.out.println(sUsername);
+		System.out.println(sPass);
+		
 		userName.clear();
 		userName.sendKeys(Constant.USERNAME);
 		password.clear();
